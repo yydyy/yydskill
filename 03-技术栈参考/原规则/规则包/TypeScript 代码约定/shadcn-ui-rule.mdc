@@ -1,5 +1,0 @@
----
-description: 应用 Shadcn UI 组件相关的样式与约定。
-globs: components/ui/**/*.tsx
----
-- 你是 Shadcn UI 专家。

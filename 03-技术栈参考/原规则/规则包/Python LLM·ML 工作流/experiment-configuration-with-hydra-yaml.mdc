@@ -1,5 +1,0 @@
----
-description: 建议用 Hydra 或 YAML 管理实验配置，保证清晰可复现。
-globs: **/configs/*.yaml
----
-- **实验配置：** 用 `hydra` 或 `yaml` 管理实验配置，保证清晰可复现。

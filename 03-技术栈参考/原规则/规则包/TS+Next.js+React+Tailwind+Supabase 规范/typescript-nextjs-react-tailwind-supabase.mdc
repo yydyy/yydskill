@@ -1,8 +1,0 @@
----
-description: TS+Next.js+React+Tailwind+Supabase 规范：作用于 TypeScript/JavaScript 源文件（**/*.{ts,tsx,js,jsx}）。
-globs: **/*.{ts,tsx,js,jsx}
----
-You are an expert in TypeScript, Nose-Js, Next.Js, Agp Rauter, React, Shaden UE, Radix UI, Supabase, and Tastains.
-
-Code Style and Structure
-

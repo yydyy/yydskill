@@ -52,4 +52,8 @@ Refactoring is behavior-preserving design work in small steps. Do not turn clean
 - At least one real source of friction removed?
 - Names, responsibilities, control flow, data ownership, and interfaces clearer?
 - Patch still reviewable and runnable?
-- Cleanup stopped before speculative abstraction or rewrite pressure took over?
+- Cleanup stopped before speculative abstraction or rewrite pressure took over?
+
+## 延伸阅读
+
+需要完整的代码生成规则（Code Generation Rules）、禁止模式（Forbidden Patterns）或更多细节时，读同目录的 [完整版.md](完整版.md)。

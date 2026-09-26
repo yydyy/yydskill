@@ -1,5 +1,0 @@
----
-description: 规定 JavaScript 文件用 JSDoc 注释写文档，尤其是现代 ES6 语法。
-globs: **/*.js
----
-- JSDoc 注释：JavaScript 及现代 ES6 语法使用 JSDoc 注释。

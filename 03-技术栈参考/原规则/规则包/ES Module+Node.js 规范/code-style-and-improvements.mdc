@@ -1,9 +1,0 @@
----
-description: 聚焦代码风格、重构建议，以及在 JavaScript、TypeScript、Python 文件中运用最新的 ES 与 Node.js 特性。
-globs: *.js, *.jsx, *.ts, *.tsx, *.py
----
-- 使用 ES module 语法
-- 合适时主动提出重构与代码改进建议
-- 优先使用最新的 ES 与 Node.js 特性
-- 不要为错误道歉，直接修掉
-  * 如果代码写不完，加 TODO: 注释

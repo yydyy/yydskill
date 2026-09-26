@@ -1,5 +1,0 @@
----
-description: 为 LLM 应用单独划出模块或文件管理 Prompt 模板，并纳入版本控制。
-globs: **/prompts/*.py
----
-- **LLM Prompt 工程：** 单独划出模块或文件管理 Prompt 模板，并纳入版本控制。

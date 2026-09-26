@@ -1,5 +1,0 @@
----
-description: 要求所有 Python 函数、方法与类使用 Google 风格 docstring。
-globs: **/*.py
----
-- **文档：** Google 风格 docstring

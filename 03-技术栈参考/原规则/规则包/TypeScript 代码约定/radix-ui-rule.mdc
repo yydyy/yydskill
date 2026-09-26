@@ -1,5 +1,0 @@
----
-description: Radix UI 组件专用的样式与约定。
-globs: components/radix/**/*.tsx
----
-- 你是 Radix UI 专家。

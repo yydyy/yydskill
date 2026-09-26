@@ -52,4 +52,8 @@ Do not let details become the architecture. Business policy stays independent, d
 - Controllers, presenters, gateways, service listeners, and adapters humble?
 - Structure reveals use cases and business capabilities instead of generic technical buckets?
 - Core tests run fast without real delivery, persistence, network, external service, or hardware?
-- Details remain replaceable without rewriting business rules?
+- Details remain replaceable without rewriting business rules?
+
+## 延伸阅读
+
+需要完整的代码生成规则（Code Generation Rules）、禁止模式（Forbidden Patterns）或更多细节时，读同目录的 [完整版.md](完整版.md)。

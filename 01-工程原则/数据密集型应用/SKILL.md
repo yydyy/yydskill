@@ -58,4 +58,8 @@ Do not design distributed data behavior as if every write, read, queue, cache, r
 - Events, logs, streams, batch jobs, and projections are replayable or have explicit repair paths.
 - Service boundaries follow data ownership and update semantics.
 - Lag, retries, failures, rebuilds, and repair paths are observable.
-- The design avoids exactly-once wishful thinking and hidden distributed-system contracts.
+- The design avoids exactly-once wishful thinking and hidden distributed-system contracts.
+
+## 延伸阅读
+
+需要完整的代码生成规则（Code Generation Rules）、禁止模式（Forbidden Patterns）或更多细节时，读同目录的 [完整版.md](完整版.md)。

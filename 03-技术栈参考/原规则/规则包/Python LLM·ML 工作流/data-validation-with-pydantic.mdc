@@ -1,5 +1,0 @@
----
-description: FastAPI 应用用 Pydantic 模型对请求与响应数据做严格校验。
-globs: **/app/*.py
----
-- **数据校验：** 用 Pydantic 模型对请求与响应数据做严格校验。

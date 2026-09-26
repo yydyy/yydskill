@@ -50,4 +50,8 @@ Working code is not automatically clean code.
 - Did framework, persistence, vendor, and construction details stay behind boundaries?
 - Did I remove at least one smell from the touched area?
 - Do tests protect the changed behavior or contract?
-- Did I actually run the relevant tests or checks for this change?
+- Did I actually run the relevant tests or checks for this change?
+
+## 延伸阅读
+
+需要完整的代码生成规则（Code Generation Rules）、禁止模式（Forbidden Patterns）或更多细节时，读同目录的 [完整版.md](完整版.md)。

@@ -1,5 +1,0 @@
----
-description: 用 Ruff 统一代码格式，取代 Black、isort、flake8。
-globs: **/*.py
----
-- **代码格式化：** Ruff（取代 `black`、`isort`、`flake8`）

@@ -1,8 +1,0 @@
----
-description: 在所有 TypeScript 文件中强制统一的命名约定，保持一致性与可读性。
-globs: **/*.ts
----
-- 文件名用 kebab-case（如 `my-component.ts`）
-- 变量与函数名用 camelCase（如 `myVariable`、`myFunction()`）
-- 类、类型与接口用 UpperCamelCase（PascalCase）（如 `MyClass`、`MyInterface`）
-- 常量与枚举值用全大写加下划线（如 `MAX_COUNT`、`Color.RED`）

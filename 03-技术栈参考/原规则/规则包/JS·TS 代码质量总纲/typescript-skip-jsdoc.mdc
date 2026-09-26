@@ -1,5 +1,0 @@
----
-description: TypeScript 不应使用 JSDoc 注释，因为类型系统已使注释变得多余。
-globs: **/*.ts
----
-- JSDoc 注释：不要使用 JSDoc 注释，因为这里是 TypeScript，类型已经声明清楚了。

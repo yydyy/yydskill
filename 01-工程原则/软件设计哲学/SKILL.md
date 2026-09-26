@@ -49,4 +49,8 @@ Working code, small pieces, familiar patterns, flags, wrappers, and extra docume
 - Does every interface element, wrapper, layer, helper, option, and name hide enough complexity to justify its existence?
 - Are important decisions localized, dependencies visible, caller-needed constraints documented, and mutable internals protected?
 - Did common cases become automatic while rare controls, special cases, performance tricks, and exception details stayed out of the common path?
-- Are names precise and consistent, comments current and non-duplicative, and conventions followed unless new information justified changing them?
+- Are names precise and consistent, comments current and non-duplicative, and conventions followed unless new information justified changing them?
+
+## 延伸阅读
+
+需要完整的代码生成规则（Code Generation Rules）、禁止模式（Forbidden Patterns）或更多细节时，读同目录的 [完整版.md](完整版.md)。

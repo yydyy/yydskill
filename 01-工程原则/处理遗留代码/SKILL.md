@@ -53,4 +53,8 @@ Gain control before improving design. Understand current behavior, protect what 
 - Blocking dependency reduced without expanding hidden dependencies?
 - Behavior change, refactoring, and cleanup kept separate?
 - Temporary seam or dependency-breaking trick has a cleanup path?
-- Touched area is more understandable, testable, or changeable?
+- Touched area is more understandable, testable, or changeable?
+
+## 延伸阅读
+
+需要完整的代码生成规则（Code Generation Rules）、禁止模式（Forbidden Patterns）或更多细节时，读同目录的 [完整版.md](完整版.md)。

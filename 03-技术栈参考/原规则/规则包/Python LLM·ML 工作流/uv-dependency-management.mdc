@@ -1,5 +1,0 @@
----
-description: 指定用 uv（首选）或 Poetry 管理 Python 项目的依赖。
-globs: **/pyproject.toml
----
-- **依赖管理：** uv（首选）/ Poetry

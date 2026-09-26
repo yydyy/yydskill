@@ -51,4 +51,8 @@ A passing happy path is not production readiness. Design the failure semantics, 
 - External input and dependency responses validated before they affect state, caches, queues, or downstream systems?
 - Diagnostics cover logs, metrics, health, correlation, runtime, version, configuration, dependencies, saturation, queue depth, retries, and breaker state?
 - Startup, deployment, migration, automation, and operational controls restartable, observable, authorized, auditable, and recoverable where practical?
-- Interconnects, APIs, caches, scheduled work, security, and chaos tests have explicit production failure behavior?
+- Interconnects, APIs, caches, scheduled work, security, and chaos tests have explicit production failure behavior?
+
+## 延伸阅读
+
+需要完整的代码生成规则（Code Generation Rules）、禁止模式（Forbidden Patterns）或更多细节时，读同目录的 [完整版.md](完整版.md)。

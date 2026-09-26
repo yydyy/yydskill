@@ -1,6 +1,0 @@
----
-description: 定义 React 前端开发的约定与优化要点。
-globs: frontend/src/**/*.ts*
----
-- 优化 Web Vitals（LCP、CLS、FID）。
-- `use client` 只在访问 Web API 的小体量组件里使用。

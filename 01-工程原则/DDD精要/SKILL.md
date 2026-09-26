@@ -59,4 +59,8 @@ Use DDD selectively, but seriously. Start from business capability, subdomain im
 - Aggregates small, root-protected, identity-referenced, and not graph-shaped?
 - Application Services coordinating rather than owning business logic?
 - Infrastructure, persistence, REST, and transport details kept out of the domain model?
-- Modeling discoveries, acceptance tests, expert input, and modeling debt captured before shipping?
+- Modeling discoveries, acceptance tests, expert input, and modeling debt captured before shipping?
+
+## 延伸阅读
+
+需要完整的代码生成规则（Code Generation Rules）、禁止模式（Forbidden Patterns）或更多细节时，读同目录的 [完整版.md](完整版.md)。

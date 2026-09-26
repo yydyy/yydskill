@@ -57,4 +57,8 @@ Enterprise applications are not improved by inventing architecture for every fea
 - Are concurrency conflicts, offline locks, identity scope, and loading behavior visible?
 - Are remote and integration boundaries coarse, translated, version-aware, and failure-aware?
 - Is session state owned, protected, scalable, durable enough, and cleaned up?
-- Are tests aligned to the responsibility that owns each behavior?
+- Are tests aligned to the responsibility that owns each behavior?
+
+## 延伸阅读
+
+需要完整的代码生成规则（Code Generation Rules）、禁止模式（Forbidden Patterns）或更多细节时，读同目录的 [完整版.md](完整版.md)。

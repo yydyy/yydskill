@@ -1,7 +1,0 @@
----
-description: 强制具体的 TypeScript 编码实践，包括优先 interface 而非 type、用 map 取代 enum，作用于项目所有 TypeScript 文件。
-globs: **/*.{ts,tsx}
----
-- 所有代码使用 TypeScript；优先用 interface 而不是 type。
-- 避免 enum，改用 map。
-- 函数式组件配合 TypeScript interface。

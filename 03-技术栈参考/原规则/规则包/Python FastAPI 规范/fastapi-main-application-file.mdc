@@ -1,7 +1,0 @@
----
-description: 规定 FastAPI 项目主应用文件的写法，重点是应用初始化与配置。
-globs: app/main.py
----
-- 用 FastAPI() 正确完成应用初始化
-- 配置中间件与异常处理器
-- 用路径操作装饰器定义 API 路由

@@ -1,5 +1,0 @@
----
-description: 用 GitHub Actions 或 GitLab CI 实现 CI/CD 流水线，完成自动构建、测试与部署。
-globs: /.github/workflows/**/*.*
----
-- 用 GitHub Actions 或 GitLab CI 实现 CI/CD。

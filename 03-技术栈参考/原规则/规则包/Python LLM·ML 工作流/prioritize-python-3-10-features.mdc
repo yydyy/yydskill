@@ -1,5 +1,0 @@
----
-description: 优先使用 Python 3.10 及之后版本的新特性。
-globs: **/*.py
----
-- **优先使用 Python 3.10+ 的新特性**。

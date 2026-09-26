@@ -68,4 +68,8 @@ Do not optimize only for the local edit, requested feature, or familiar ritual. 
 - Repeatable work automated, versioned, and aligned with shared checks?
 - Tests automatic, relevant, and run before calling the change done?
 - Names, comments, docs, scripts, tests, and commits communicate intent?
-- Touched area better or explicitly contained?
+- Touched area better or explicitly contained?
+
+## 延伸阅读
+
+需要完整的代码生成规则（Code Generation Rules）、禁止模式（Forbidden Patterns）或更多细节时，读同目录的 [完整版.md](完整版.md)。

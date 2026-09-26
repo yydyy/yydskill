@@ -1,6 +1,0 @@
----
-description: 定义 NestJS shared 模块的标准，强调跨模块可访问的工具函数与共享业务逻辑。
-globs: src/shared/**/*.*
----
-- 工具函数
-- 共享业务逻辑
