@@ -1,0 +1,5 @@
+---
+description: 用 Ruff 保证 Python 文件的代码风格一致，维持整洁统一的代码库。
+globs: /**/*.py
+---
+- 用 Ruff 强制保证代码风格一致。

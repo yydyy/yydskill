@@ -1,0 +1,9 @@
+---
+description: 定义后端使用 FastAPI 的专门约定。
+globs: backend/src/**/*.py
+---
+- 遵循 RESTful API 设计原则。
+- 用 FastAPI 的依赖注入系统管理状态与共享资源。
+- 如适用，用 SQLAlchemy 2.0 提供 ORM 能力。
+- 本地开发环境要正确配置 CORS。
+- 用户访问平台不需要认证或授权。

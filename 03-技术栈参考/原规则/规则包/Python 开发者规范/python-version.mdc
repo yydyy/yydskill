@@ -1,0 +1,5 @@
+---
+description: 规定项目所有 Python 代码一律使用 Python 3.12。
+globs: **/*.py
+---
+- 一律使用 Python 3.12

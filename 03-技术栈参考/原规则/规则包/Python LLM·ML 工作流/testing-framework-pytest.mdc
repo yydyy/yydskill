@@ -1,0 +1,5 @@
+---
+description: 指定 pytest 作为 Python 项目的测试框架。
+globs: **/tests/*.py
+---
+- **测试框架：** `pytest`

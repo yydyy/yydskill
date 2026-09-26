@@ -1,0 +1,5 @@
+---
+description: 强制安装依赖时使用 UV，以保证各环境的一致性与效率。
+globs: **/requirements.txt
+---
+- 安装依赖一律使用 UV

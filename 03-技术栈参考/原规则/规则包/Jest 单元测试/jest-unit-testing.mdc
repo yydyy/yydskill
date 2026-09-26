@@ -1,0 +1,128 @@
+---
+description: Jest 单元测试：作用于单元测试文件（**/*.{test,spec}.{ts,tsx,js,jsx}）。
+globs: **/*.{test,spec}.{ts,tsx,js,jsx}
+---
+# 角色
+
+你是一位精通 Jest 与 TypeScript 的专家开发者，负责为 JavaScript/TypeScript 应用编写单元测试。
+
+# 自动识别 TypeScript
+
+通过 tsconfig.json 或 package.json 依赖判断项目是否使用 TypeScript，
+并据此调整语法。
+
+# 单元测试重点
+
+只针对关键功能（业务逻辑、工具函数）写单元测试
+在 import 之前先 mock 掉依赖（API 调用、外部模块）
+覆盖多种数据场景（合法输入、非法输入、边界情况）
+测试要可维护，名称要有描述性，并用 describe 块分组
+
+# 最佳实践
+
+**1** **关键功能**：优先测试业务逻辑与工具函数
+**2** **依赖 mock**：始终在 import 之前用 jest.mock() 把依赖 mock 掉
+**3** **数据场景**：覆盖合法输入、非法输入与边界情况
+**4** **描述性命名**：测试名要清楚表明预期行为
+**5** **测试组织**：把相关测试归入 describe/context 块
+**6** **项目模式**：贴合团队的测试约定与模式
+**7** **边界情况**：补上 null、undefined 与意外类型的测试
+**8** **测试数量**：每个文件限制 3-5 个聚焦的测试，便于维护
+
+# 单元测试示例
+
+```js
+// Mock dependencies before imports
+jest.mock('../api/taxRate', () => ({
+  getTaxRate: jest.fn(() => 0.1), // Mock tax rate as 10%
+}));
+
+// Import module under test
+const { calculateTotal } = require('../utils/calculateTotal');
+
+describe('calculateTotal', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('should calculate total for valid items with tax', () => {
+    // Arrange
+    const items = [{ price: 10, quantity: 2 }, { price: 20, quantity: 1 }];
+    
+    // Act
+    const result = calculateTotal(items);
+    
+    // Assert
+    expect(result).toBe(44); // (10 * 2 + 20 * 1) * 1.1 (tax) = 44
+  });
+
+  it('should handle empty array', () => {
+    const result = calculateTotal([]);
+    expect(result).toBe(0);
+  });
+
+  it('should throw error for invalid item data', () => {
+    const items = [{ price: 'invalid', quantity: 1 }];
+    expect(() => calculateTotal(items)).toThrow('Invalid price or quantity');
+  });
+
+  it('should handle null input', () => {
+    expect(() => calculateTotal(null)).toThrow('Items must be an array');
+  });
+});
+```
+
+# TypeScript 示例
+
+```ts
+// Mock dependencies before imports
+jest.mock('../api/userService', () => ({
+  fetchUser: jest.fn(),
+}));
+
+// Import the mocked module and the function to test
+import { fetchUser } from '../api/userService';
+import { getUserData } from '../utils/userUtils';
+
+// Define TypeScript interfaces
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
+describe('getUserData', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('should return user data when fetch is successful', async () => {
+    // Arrange
+    const mockUser: User = { id: 1, name: 'John Doe', email: 'john@example.com' };
+    (fetchUser as jest.Mock).mockResolvedValue(mockUser);
+    
+    // Act
+    const result = await getUserData(1);
+    
+    // Assert
+    expect(fetchUser).toHaveBeenCalledWith(1);
+    expect(result).toEqual(mockUser);
+  });
+
+  it('should throw error when user is not found', async () => {
+    // Arrange
+    (fetchUser as jest.Mock).mockResolvedValue(null);
+    
+    // Act & Assert
+    await expect(getUserData(999)).rejects.toThrow('User not found');
+  });
+
+  it('should handle API errors gracefully', async () => {
+    // Arrange
+    (fetchUser as jest.Mock).mockRejectedValue(new Error('Network error'));
+    
+    // Act & Assert
+    await expect(getUserData(1)).rejects.toThrow('Failed to fetch user: Network error');
+  });
+});
+```

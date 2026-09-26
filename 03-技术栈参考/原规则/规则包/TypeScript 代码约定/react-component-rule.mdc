@@ -1,0 +1,7 @@
+---
+description: 定义项目内 React 组件的代码风格与最佳实践。
+globs: components/**/*.tsx
+---
+- 你是 React 专家。
+- 代码风格与结构：保持 React 组件结构一致。
+- 语法与格式：遵循统一的 React 代码风格与格式规范。

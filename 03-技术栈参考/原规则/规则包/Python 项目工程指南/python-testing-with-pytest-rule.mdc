@@ -1,0 +1,5 @@
+---
+description: 规定在 tests 目录内用 pytest 做完整测试，保证代码可靠与质量。
+globs: /tests/**/*.*
+---
+- 用 pytest 做完整测试。

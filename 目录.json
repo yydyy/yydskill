@@ -1,0 +1,217 @@
+{
+  "name": "AI技能库",
+  "generatedAt": "2026-09-20T22:55:07",
+  "note": "文件夹和标题用中文；SKILL.md 的 YAML name 必须是英文 kebab-case，供 Cursor 识别。",
+  "skills": [
+    {
+      "id": "a-philosophy-of-software-design",
+      "title": "软件设计哲学",
+      "group": "工程原则",
+      "kind": "skill",
+      "folder": "01-工程原则/软件设计哲学",
+      "description": "来自 John Ousterhout《A Philosophy of Software Design》。用于模块拆分、API 设计、信息隐藏和消除浅层抽象。",
+      "author": "John Ousterhout",
+      "book": "A Philosophy of Software Design",
+      "source": "agent-rules-books"
+    },
+    {
+      "id": "clean-architecture",
+      "title": "整洁架构",
+      "group": "工程原则",
+      "kind": "skill",
+      "folder": "01-工程原则/整洁架构",
+      "description": "来自 Robert C. Martin《Clean Architecture》。用于分层依赖规则、边界划分，以及业务策略与技术细节分离。",
+      "author": "Robert C. Martin",
+      "book": "Clean Architecture",
+      "source": "agent-rules-books"
+    },
+    {
+      "id": "clean-code",
+      "title": "整洁代码",
+      "group": "工程原则",
+      "kind": "skill",
+      "folder": "01-工程原则/整洁代码",
+      "description": "来自 Robert C. Martin《Clean Code》。用于日常编码、命名、函数设计、代码审查和保持可读性。",
+      "author": "Robert C. Martin",
+      "book": "Clean Code",
+      "source": "agent-rules-books"
+    },
+    {
+      "id": "code-complete",
+      "title": "代码大全",
+      "group": "工程原则",
+      "kind": "skill",
+      "folder": "01-工程原则/代码大全",
+      "description": "来自 Steve McConnell《Code Complete》。用于例程设计、变量管理、防御式编程和防崩溃实现决策。",
+      "author": "Steve McConnell",
+      "book": "Code Complete",
+      "source": "agent-rules-books"
+    },
+    {
+      "id": "designing-data-intensive-applications",
+      "title": "数据密集型应用",
+      "group": "工程原则",
+      "kind": "skill",
+      "folder": "01-工程原则/数据密集型应用",
+      "description": "来自 Martin Kleppmann《Designing Data-Intensive Applications》。用于存档、排行榜、在线数据、事件流、一致性和 schema 演进。",
+      "author": "Martin Kleppmann",
+      "book": "Designing Data-Intensive Applications",
+      "source": "agent-rules-books"
+    },
+    {
+      "id": "domain-driven-design",
+      "title": "领域驱动设计",
+      "group": "工程原则",
+      "kind": "skill",
+      "folder": "01-工程原则/领域驱动设计",
+      "description": "来自 Eric Evans《Domain-Driven Design》。用于按业务建模、统一语言、划分系统边界和战略设计。",
+      "author": "Eric Evans",
+      "book": "Domain-Driven Design",
+      "source": "agent-rules-books"
+    },
+    {
+      "id": "domain-driven-design-distilled",
+      "title": "DDD精要",
+      "group": "工程原则",
+      "kind": "skill",
+      "folder": "01-工程原则/DDD精要",
+      "description": "来自 Vaughn Vernon《Domain-Driven Design Distilled》。用于轻量级系统拆分、子域划分、上下文映射和基础战术模式。",
+      "author": "Vaughn Vernon",
+      "book": "Domain-Driven Design Distilled",
+      "source": "agent-rules-books"
+    },
+    {
+      "id": "implementing-domain-driven-design",
+      "title": "实现DDD",
+      "group": "工程原则",
+      "kind": "skill",
+      "folder": "01-工程原则/实现DDD",
+      "description": "来自 Vaughn Vernon《Implementing Domain-Driven Design》。用于实现实体、聚合根、领域事件、系统集成和应用架构落地。",
+      "author": "Vaughn Vernon",
+      "book": "Implementing Domain-Driven Design",
+      "source": "agent-rules-books"
+    },
+    {
+      "id": "mao-zedong-perspective",
+      "title": "毛泽东思想视角",
+      "group": "工程原则",
+      "kind": "skill",
+      "folder": "01-工程原则/毛泽东思想视角",
+      "description": "从实践、矛盾、调查研究的角度审视工程决策与落地。用于复杂取舍、调查研究后再下结论。",
+      "author": "毛泽东著作蒸馏",
+      "book": "Mao Zedong Perspective",
+      "source": "agent-rules-books"
+    },
+    {
+      "id": "patterns-of-enterprise-application-architecture",
+      "title": "企业应用架构模式",
+      "group": "工程原则",
+      "kind": "skill",
+      "folder": "01-工程原则/企业应用架构模式",
+      "description": "来自 Martin Fowler《Patterns of Enterprise Application Architecture》。用于后端架构选型、数据持久化、事务、服务层和职责划分。",
+      "author": "Martin Fowler",
+      "book": "Patterns of Enterprise Application Architecture",
+      "source": "agent-rules-books"
+    },
+    {
+      "id": "refactoring",
+      "title": "重构",
+      "group": "工程原则",
+      "kind": "skill",
+      "folder": "01-工程原则/重构",
+      "description": "来自 Martin Fowler《Refactoring》。用于安全改善老代码结构、识别坏味道、保持重构与功能变更分离。",
+      "author": "Martin Fowler",
+      "book": "Refactoring",
+      "source": "agent-rules-books"
+    },
+    {
+      "id": "refactoring-guru",
+      "title": "重构大师",
+      "group": "工程原则",
+      "kind": "skill",
+      "folder": "01-工程原则/重构大师",
+      "description": "来自 Refactoring.Guru。用于选择具体重构手法并落到代码改动。",
+      "author": "Refactoring.Guru",
+      "book": "Refactoring Guru",
+      "source": "agent-rules-books"
+    },
+    {
+      "id": "release-it",
+      "title": "发布上线",
+      "group": "工程原则",
+      "kind": "skill",
+      "folder": "01-工程原则/发布上线",
+      "description": "来自 Michael T. Nygard《Release It!》。用于发布、生产稳定性、熔断、舱壁、背压、可观测性和部署行为。",
+      "author": "Michael T. Nygard",
+      "book": "Release It!",
+      "source": "agent-rules-books"
+    },
+    {
+      "id": "the-pragmatic-programmer",
+      "title": "务实程序员",
+      "group": "工程原则",
+      "kind": "skill",
+      "folder": "01-工程原则/务实程序员",
+      "description": "来自 Andrew Hunt & David Thomas《The Pragmatic Programmer》。用于技术选型、DRY、正交性、快速反馈和可适应性。",
+      "author": "Andrew Hunt & David Thomas",
+      "book": "The Pragmatic Programmer",
+      "source": "agent-rules-books"
+    },
+    {
+      "id": "working-effectively-with-legacy-code",
+      "title": "处理遗留代码",
+      "group": "工程原则",
+      "kind": "skill",
+      "folder": "01-工程原则/处理遗留代码",
+      "description": "来自 Michael Feathers《Working Effectively with Legacy Code》。用于接手老项目、编写特征测试、打破依赖和逐步重获控制权。",
+      "author": "Michael Feathers",
+      "book": "Working Effectively with Legacy Code",
+      "source": "agent-rules-books"
+    },
+    {
+      "id": "rule-priority",
+      "title": "规则优先级",
+      "group": "个人习惯",
+      "kind": "rule",
+      "folder": "02-个人习惯/规则优先级",
+      "description": "用于多条规则冲突时按安全正确性、用户意图、性能、风格排序取舍。",
+      "source": "AI_Cunstom"
+    },
+    {
+      "id": "coding-rules",
+      "title": "编码四原则",
+      "group": "个人习惯",
+      "kind": "rule",
+      "folder": "02-个人习惯/编码四原则",
+      "description": "用于先问后写、极简优先、禁止臆测 API，以及改动后自检。",
+      "source": "AI_Cunstom"
+    },
+    {
+      "id": "quality-roles",
+      "title": "质量保障角色",
+      "group": "个人习惯",
+      "kind": "skill",
+      "folder": "02-个人习惯/质量保障角色",
+      "description": "用于按场景激活架构审查、调试、错误处理、性能、安全和测试思维。",
+      "source": "AI_Cunstom"
+    },
+    {
+      "id": "cocos-skills",
+      "title": "Cocos引擎开发",
+      "group": "个人习惯",
+      "kind": "skill",
+      "folder": "02-个人习惯/Cocos引擎开发",
+      "description": "用于 Cocos Creator 2.4/3.x 开发、版本差异、组件规范和性能优先。",
+      "source": "AI_Cunstom"
+    },
+    {
+      "id": "framework-guide",
+      "title": "框架开发指南",
+      "group": "个人习惯",
+      "kind": "skill",
+      "folder": "02-个人习惯/框架开发指南",
+      "description": "用于 cocosFrameworkCli 全局对象、类型扩展和框架约束。",
+      "source": "AI_Cunstom"
+    }
+  ]
+}

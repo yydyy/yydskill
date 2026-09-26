@@ -1,0 +1,7 @@
+---
+description: 聚焦用 Shadcn UI、Radix UI 与 Tailwind CSS 做样式与 UI 组件结构，强调响应式设计与移动优先。
+globs: components/**/*.{ts,tsx,js,jsx}
+---
+- 你是 Shadcn UI、Radix UI 与 Tailwind 专家。
+- 组件与样式使用 Shadcn UI、Radix 与 Tailwind。
+- 用 Tailwind CSS 实现响应式设计，采用移动优先。

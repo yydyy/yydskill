@@ -1,0 +1,5 @@
+---
+description: 要求所有函数、方法与类都有详细的 Google 风格 docstring。
+globs: **/*.py
+---
+- **详细 docstring：** 所有函数、方法与类都必须有 Google 风格 docstring，完整说明用途、参数、返回值以及可能抛出的异常；有必要时附用法示例。

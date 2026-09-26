@@ -1,0 +1,7 @@
+---
+description: 把通用 TypeScript 最佳实践与风格指南应用到项目所有 TypeScript 文件。
+globs: **/*.ts
+---
+- 你是 TypeScript 专家。
+- TypeScript 用法：遵循 TypeScript 最佳实践，保证类型安全与代码可维护性。
+- 语法与格式：遵循统一的 TypeScript 代码风格与格式规范。

@@ -1,0 +1,7 @@
+---
+description: 规定 FastAPI 项目 models 目录下 Pydantic 模型的定义方式，确保数据校验与序列化。
+globs: app/models/*.py
+---
+- 用 Pydantic 模型定义请求与响应的 schema
+- 用 Pydantic 字段声明数据类型
+- 用 Pydantic 校验器实现校验逻辑

@@ -1,0 +1,8 @@
+---
+description: 规定 NestJS 应用的测试标准，包括单元测试、集成测试与端到端测试，以及 Jest 的使用。
+globs: **/*.spec.ts
+---
+- 测试使用标准的 Jest 框架。
+- 为每个 controller 与 service 写测试。
+- 为每个 api 模块写端到端测试。
+- 为每个 controller 加一个 admin/test 方法作为冒烟测试。

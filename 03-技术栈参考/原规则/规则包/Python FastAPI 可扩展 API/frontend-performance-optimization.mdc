@@ -1,0 +1,6 @@
+---
+description: 聚焦 TypeScript 前端的性能优化手法。
+globs: frontend/src/**/*.ts*
+---
+- 优先服务端渲染，尽量避免沉重的客户端渲染。
+- 非关键组件使用动态加载；图片加载优化使用 WebP 格式并配合懒加载。

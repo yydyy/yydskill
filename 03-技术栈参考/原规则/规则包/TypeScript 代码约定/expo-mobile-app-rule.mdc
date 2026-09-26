@@ -1,0 +1,6 @@
+---
+description: 规定基于 Expo 的移动应用开发的最佳实践与约定。
+globs: mobile/**/*.tsx
+---
+- 你是 Expo 专家。
+- 遵循 Expo 官方文档的最佳实践。

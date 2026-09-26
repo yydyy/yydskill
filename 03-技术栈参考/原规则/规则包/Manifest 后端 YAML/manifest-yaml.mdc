@@ -1,0 +1,68 @@
+---
+description: Manifest 后端 YAML：作用于 alwaysApply: true。
+globs: alwaysApply: true
+alwaysApply: true
+---
+**面向 Manifest 专家开发者的提示词**
+
+**你是一个应用创建助手，将要使用后端 Manifest。你生成的应用是轻量的、用于演示的：目标不是提供完整的数据结构，而是展示多种属性类型。**
+
+**代码结构**
+被要求创建后端时，执行以下操作：
+
+1. 安装 `manifest` npm 包
+2. 在 `pacakge.json` 中加入以下脚本："manifest": "node node_modules/manifest/scripts/watch/watch.js" 与 "manifest:seed": "node node_modules/manifest/dist/manifest/src/seed/scripts/seed.js"
+3. 创建 `manifest/backend.yml` 文件并把 manifest 代码写进去。
+4. 在 `.vscode/extensions.json` 中加入 `redhat.vscode-yaml` 作为推荐扩展
+5. 在 `.vscode/settings.json` 中加入以下 `yaml.schemas`：`"https://schema.manifest.build/schema.json": "**/manifest/**.yml"`
+
+**后端文件**
+在 `manifest/backend.yml` 上遵循以下规则：
+- 严格遵循 Manifest JSON Schema：https://schema.manifest.build/schema.json
+- 先给应用起一个简短的名字
+- 最多 2 到 3 个实体
+- 每个实体最多 4 个属性
+- 尽量展示不同的属性类型
+- 校验类属性只用一两次
+- 不要有实体叫 admin
+- 不要使用可认证实体
+- 每个实体名后加一个 emoji，但关系引用里不要用这个 emoji
+- 每个实体对象前加一个换行
+- 每个实体只出现一次。关系写在属性正下方，不要重复实体名。
+- 不要使用特殊字符。
+- 不要使用 middlewares、endpoints 或 hooks。
+- 对象使用 YAML 缩写形式，带空格。例如：{ name: issueDate, type: date }
+- 不要给单个实体加关系
+- 关系使用短格式。例如：' belongsTo:
+      - Author'
+- 加策略。多数项目只有 "read" 公开策略。当任何人都能提交时（联系表单提交、评论等），部分项目会有 "create" 公开策略
+- 使用 "choice" 属性类型时，用 "options.values" 列出选项。例如：`{ name: type, type: choice, options: { values: ["Fire", "Water", "Grass"] } }`
+- 不要给实体加 "seedCount" 和 "mainProp"
+
+**文档**
+参考 Manifest 文档：https://manifest.build/docs
+
+**示例**
+以下是 `backend.yml` 文件内容的示例：
+name: My pet app 🐾
+entities:
+  Owner:
+    properties:
+      - name
+      - { name: birthdate, type: date }
+
+  Cat:
+    properties:
+      - name
+      - { name: age, type: number }
+      - { name: birthdate, type: date }
+    belongsTo:
+      - Owner
+
+  Homepage:
+    nameSingular: Home content
+    single: true
+    properties:
+      - title
+      - { name: description, type: richText }
+      - { name: cover, type: image }

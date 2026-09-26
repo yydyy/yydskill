@@ -1,0 +1,6 @@
+---
+description: 把 Next.js App Router 相关规范应用到 app 目录下的组件与页面。
+globs: app/**/*.tsx
+---
+- 你是 Next.js App Router 专家。
+- 数据获取、渲染与路由方面遵循 Next.js 官方文档的最佳实践。

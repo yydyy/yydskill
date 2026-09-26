@@ -1,0 +1,6 @@
+---
+description: 关于项目中 Docker 使用的规则。
+globs: Dockerfile*
+---
+- 用 Docker 容器化，保证部署简单。
+- 开发与生产环境都用 Docker 与 docker compose 做编排；不要再用已废弃的 `docker-compose` 命令。

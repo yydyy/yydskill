@@ -1,0 +1,6 @@
+---
+description: 在所有相关文件中应用 Tailwind CSS 样式约定。
+globs: **/*.tsx
+---
+- 你是 Tailwind 专家。
+- UI 与样式：用 Tailwind CSS 保持 UI 样式一致。

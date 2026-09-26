@@ -1,0 +1,52 @@
+---
+description: Flutter 开发规范：代码风格与结构、/lib 目录组织、命名约定、导入顺序、UI 与主题、性能优化、Riverpod 状态管理与 MVVM 架构。
+globs: lib/**/*.dart
+---
+### 代码风格与结构
+- 写简洁高效的源码。
+- 追求易读易维护的源码，示例要准确。
+- 避免重复代码：把 widget 与函数模块化成可复用组件。
+- 变量命名要有描述性：使用带助动词的命名，如 isLoading、hasError。
+
+### /lib 下的目录结构
+- /lib/models/：数据模型与类型定义（Model）
+- /lib/viewmodels/：状态管理与业务逻辑（ViewModel）
+- /lib/views/widgets/：可复用 widget（View）
+- /lib/views/screens/：按屏幕划分的 widget（View）
+- /lib/services/：API 调用与数据访问的 service 类
+- /lib/utils/：辅助函数与常量
+
+### 命名约定
+- 目录与文件：用 snake_case（如 auth_wizard.dart）。
+- UpperCamelCase：用于类名/枚举/typedef/类型参数等。
+- lowerCamelCase：用于变量/函数/类成员（属性、方法）等。
+- lowercase_with_underscores（snake_case）：用于文件/目录/包/库等。
+
+### 导入
+- 以 dart: 开头的导入放最前（导入前缀用小写加下划线）。
+- 其次是第三方包（package:）。
+- 最后才是项目内的相对路径与文件。
+
+### 使用 Dart
+- 用好类型安全：所有代码都用静态类型，并尽量利用类型推断。
+
+### UI 与样式
+- 使用 Material widget。
+- 统一主题：用 ThemeData 应用一致的样式。
+
+### 性能优化
+- 不需要状态时优先用 StatelessWidget。
+- 善用 const 构造函数：widget 不可变时用 const 优化构建。
+
+### 状态管理
+- 用 riverpod 实现高效的状态管理。
+- 在 ViewModel 中管理状态，并与 View 关联。
+
+### 软件架构
+使用 MVVM（Model-View-ViewModel）。
+
+### 关键规则
+- 为提升可读性，每行不超过 80 个字符。
+- 所有流程控制结构（if、for、while 等）都加花括号 {}。
+- 主动写注释，帮助理解和维护代码。
+- 用单引号，避免双引号，字符串字面量风格保持一致以提升可读性。

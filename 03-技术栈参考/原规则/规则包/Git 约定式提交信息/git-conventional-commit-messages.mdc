@@ -1,0 +1,48 @@
+---
+description: Git 约定式提交信息：适用于项目内所有文件的通用约定。
+globs: **/*
+---
+使用 Conventional Commits 规范生成提交信息。
+
+提交信息的结构如下：
+
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+--------------------------------
+
+提交信息包含以下结构元素，用于向库的使用者传达意图：
+
+  - fix：类型为 fix 的提交修复代码库中的 bug（对应语义化版本中的 PATCH）。
+  - feat：类型为 feat 的提交为代码库引入新功能（对应语义化版本中的 MINOR）。
+  - BREAKING CHANGE：带 BREAKING CHANGE: 页脚，或在类型/范围后加 ! 的提交，引入破坏性 API 变更（对应语义化版本中的 MAJOR）。BREAKING CHANGE 可以出现在任何类型的提交中。
+  - 除 fix: 与 feat: 外还允许其它类型，例如 @commitlint/config-conventional（基于 Angular 约定）推荐 build:、chore:、ci:、docs:、style:、refactor:、perf:、test: 等。
+  - 除 BREAKING CHANGE: <description> 外，也可以提供其它页脚，遵循类似 git trailer 格式的约定。
+  - Conventional Commits 规范并未强制要求额外类型，它们在语义化版本中也没有隐含效果（除非包含 BREAKING CHANGE）。范围可以加在提交类型后，用于提供额外上下文，写在圆括号内，例如 feat(parser): add ability to parse arrays。
+
+
+
+### 规范细节
+
+本文档中的关键词 "MUST"、"MUST NOT"、"REQUIRED"、"SHALL"、"SHALL NOT"、"SHOULD"、"SHOULD NOT"、"RECOMMENDED"、"MAY" 与 "OPTIONAL" 按 RFC 2119 的定义解释。
+
+提交必须以类型开头。类型是一个名词，如 feat、fix 等，后面跟可选的 范围、可选的 !，以及必需的结尾冒号和空格。
+当提交为应用或库新增功能时，必须使用 feat 类型。
+当提交表示对应用的 bug 修复时，必须使用 fix 类型。
+类型后可以提供范围。范围必须是一个描述代码库某部分的名词，写在圆括号内，例如 fix(parser):
+描述必须紧跟在类型/范围前缀后的冒号和空格之后。描述是代码改动的简短摘要，例如 fix: array parsing issue when multiple spaces were contained in string。
+在简短描述之后可以提供更长的提交正文，补充代码改动的上下文信息。正文必须与描述之间空一行开始。
+提交正文是自由格式的，可以包含任意数量的、以换行分隔的段落。
+在正文之后空一行，可以提供一个或多个页脚。每个页脚必须由一个词元（token），加上 :<space> 或 <space># 分隔符，再加上一个字符串值组成（受 git trailer 约定启发）。
+页脚的词元必须用 - 代替空白字符，例如 Acked-by（这有助于把页脚区与多段正文区分开）。BREAKING CHANGE 是例外，它也可以用作词元。
+页脚的值可以包含空格和换行，解析必须在下一次遇到合法的页脚词元/分隔符对时结束。
+破坏性变更必须标在提交的类型/范围前缀中，或写成页脚中的一条。
+如果写成页脚，破坏性变更必须由大写文本 BREAKING CHANGE，加上冒号、空格和描述组成，例如 BREAKING CHANGE: environment variables now take precedence over config files。
+如果标在类型/范围前缀中，破坏性变更必须用紧跟在 : 之前的 ! 表示。若使用了 !，页脚中可以省略 BREAKING CHANGE:，此时用提交描述来说明该破坏性变更。
+除 feat 与 fix 外，提交信息中可以使用其它类型，例如 docs: update ref docs。
+除 BREAKING CHANGE 必须大写外，实现者不得把构成 Conventional Commits 的信息单元当作大小写敏感。
+作为页脚词元使用时，BREAKING-CHANGE 必须与 BREAKING CHANGE 同义。

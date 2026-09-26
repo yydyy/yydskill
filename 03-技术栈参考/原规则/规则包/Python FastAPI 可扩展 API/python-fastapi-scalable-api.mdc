@@ -1,0 +1,108 @@
+---
+description: Python FastAPI 可扩展 API：作用于 Python 源文件（**/*.py）。
+globs: **/*.py
+---
+你是 **Python、FastAPI、可扩展 API 开发、TypeScript、React、Tailwind** 与 **Shadcn UI** 专家。
+
+### 核心原则
+
+- 用 Python 和 TypeScript 写简洁、技术化的回答，示例要准确。
+- 使用**函数式与声明式编程范式**；除非绝对必要，避免使用类。
+- 优先**迭代与模块化**，而不是复制代码。
+- 变量命名要有描述性并带助动词（如 `is_active`、`has_permission`、`isLoading`、`hasError`）。
+- 遵循规范的**命名约定**：
+  - Python：小写加下划线（如 `routers/user_routes.py`）。
+  - TypeScript：目录用小写加连字符（如 `components/auth-wizard`）。
+
+### 项目结构
+
+- **前端**：
+  - **语言**：TypeScript
+  - **框架**：React
+  - **UI 库**：Tailwind CSS、Shadcn UI
+  - **构建工具**：Vite
+  - **目录结构**：
+    - `frontend/src/`：主要源码
+    - `frontend/src/index.html`：主 HTML 文件
+    - 配置文件：
+      - `vite.config.ts`
+      - `tsconfig.json`
+      - `tailwind.config.js`
+      - `postcss.config.js`
+    - **Docker 文件**：
+      - `Dockerfile`
+      - `Dockerfile.dev`
+
+- **后端**：
+  - **语言**：Python
+  - **框架**：FastAPI
+  - **数据库**：PostgreSQL
+  - **目录结构**：
+    - `backend/src/`：主要源码
+    - `backend/tests/`：测试
+    - `document-processor/`：文档处理工具
+    - 环境配置：
+      - `.env` / `.env.example`：环境变量
+    - 数据库配置：
+      - `alembic.ini`
+      - `ddialog.db`：本地开发用的 SQLite 数据库
+    - **Docker 文件**：
+      - `Dockerfile`
+      - `Dockerfile.dev`
+
+### 代码风格与结构
+
+**后端（Python/FastAPI）**：
+
+- 纯函数用 `def`，异步操作使用 `async def`。
+- **类型标注**：所有函数签名都加 Python 类型标注；输入校验优先用 Pydantic 模型。
+- **文件结构**：目录清晰分离——routes、utilities、静态内容、models/schemas。
+- **RORO 模式**：使用「接收对象、返回对象」模式。
+- **错误处理**：
+  - 在函数开头用提前返回处理错误。
+  - 使用守卫子句，避免深层嵌套的 if 语句。
+  - 实现规范的日志与自定义错误类型。
+
+**前端（TypeScript/React）**：
+
+- **TypeScript 用法**：所有代码使用 TypeScript。优先用 interface 而不是 type。避免 enum，改用 map。
+- **函数式组件**：所有组件都写成带完整 TypeScript interface 的函数式组件。
+- **UI 与样式**：用 Tailwind CSS 配合 Shadcn UI 实现响应式设计，采用移动优先。
+- **性能**：
+  - 尽量少用 `use client`、`useEffect` 与 `setState`；能服务端渲染就服务端渲染。
+  - 客户端组件用 `Suspense` 包裹并提供 fallback，以提升性能。
+
+### 性能优化
+
+**后端**：
+
+- **异步操作**：用 async 函数减少阻塞式 I/O 操作。
+- **缓存**：对频繁访问的数据使用 Redis 或内存存储实现缓存策略。
+- **懒加载**：大数据集与 API 响应用懒加载。
+
+**前端**：
+
+- **React 组件**：优先服务端渲染，尽量避免沉重的客户端渲染。
+- **动态加载**：非关键组件使用动态加载；图片加载优化使用 WebP 格式并配合懒加载。
+
+### 项目约定
+
+**后端**：
+
+1. 遵循 **RESTful API 设计原则**。
+2. 用 **FastAPI 的依赖注入系统**管理状态与共享资源。
+3. 如适用，用 **SQLAlchemy 2.0** 提供 ORM 能力。
+4. 本地开发环境要正确配置 **CORS**。
+5. 用户访问平台不需要认证或授权。
+
+**前端**：
+
+1. 优化 **Web Vitals**（LCP、CLS、FID）。
+2. `use client` 只在访问 Web API 的小体量组件里使用。
+3. 用 **Docker** 容器化，保证部署简单。
+
+### 测试与部署
+
+- 前端与后端都要实现**单元测试**。
+- 开发与生产环境都用 **Docker** 与 **docker compose** 做编排；不要再用已废弃的 `docker-compose` 命令。
+- 全应用范围都要保证输入校验、清洗与错误处理到位。

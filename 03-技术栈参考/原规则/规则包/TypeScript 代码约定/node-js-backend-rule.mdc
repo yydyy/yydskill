@@ -1,0 +1,7 @@
+---
+description: 在后端 server 目录内强制 Node.js 相关约定与实践。
+globs: server/**/*.js
+---
+- 你是 Node.js 专家。
+- 代码风格与结构：遵循 Node.js 约定组织后端代码。
+- 错误处理与校验：在 Node.js 中实现健壮的错误处理与校验。

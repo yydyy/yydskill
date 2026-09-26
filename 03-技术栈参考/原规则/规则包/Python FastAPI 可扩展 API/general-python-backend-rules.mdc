@@ -1,0 +1,17 @@
+---
+description: 适用于后端 Python 代码的通用编码风格与结构规则。
+globs: backend/src/**/*.py
+---
+- 精通 Python、FastAPI 与可扩展 API 开发。
+- 用 Python 写简洁、技术化的回答，示例要准确。
+- 使用函数式与声明式编程范式；除非绝对必要，避免使用类。
+- 优先迭代与模块化，而不是复制代码。
+- 变量命名要有描述性并带助动词（如 `is_active`、`has_permission`）。
+- 遵循命名约定：小写加下划线（如 `routers/user_routes.py`）。
+- 纯函数用 `def`，异步操作使用 `async def`。
+- 所有函数签名都加 Python 类型标注；输入校验优先用 Pydantic 模型。
+- 目录清晰分离：routes、utilities、静态内容、models/schemas。
+- 使用「接收对象、返回对象」模式。
+- 在函数开头用提前返回处理错误。
+- 使用守卫子句，避免深层嵌套的 if 语句。
+- 实现规范的日志与自定义错误类型。

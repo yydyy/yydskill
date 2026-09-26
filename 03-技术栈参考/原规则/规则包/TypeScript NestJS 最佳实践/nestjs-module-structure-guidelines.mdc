@@ -1,0 +1,12 @@
+---
+description: 规定 NestJS 模块内部的结构与组成，包括 controller、models、DTO 与 service，确保 API 封装一致。
+globs: src/modules/**/*.*
+---
+- 每个主要领域/路由一个模块。
+- 该路由一个 controller。
+- 次级路由用另外的 controller。
+- 一个 models 目录存放数据类型。
+- 输入用 class-validator 校验的 DTO。
+- 输出声明简单类型。
+- 一个 services 模块承载业务逻辑与持久化。
+- 每个实体一个 service。

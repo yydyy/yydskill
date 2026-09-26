@@ -1,0 +1,5 @@
+---
+description: 指定 FastAPI 作为 API 开发的 Web 框架。
+globs: **/app/*.py
+---
+- **Web 框架：** `fastapi`

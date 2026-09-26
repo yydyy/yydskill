@@ -1,0 +1,5 @@
+---
+description: 异步编程优先使用 async 与 await。
+globs: **/*.py
+---
+- **异步编程：** 优先使用 `async` 与 `await`

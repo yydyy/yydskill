@@ -1,0 +1,5 @@
+---
+description: 用 GitHub Actions 或 GitLab CI 实现 CI/CD。
+globs: *
+---
+- 用 GitHub Actions 或 GitLab CI 实现 CI/CD。

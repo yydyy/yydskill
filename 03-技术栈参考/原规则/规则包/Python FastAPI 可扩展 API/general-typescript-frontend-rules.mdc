@@ -1,0 +1,13 @@
+---
+description: 适用于前端 TypeScript 代码的通用编码风格与结构规则。
+globs: frontend/src/**/*.ts*
+---
+- 精通 TypeScript、React、Tailwind 与 Shadcn UI。
+- 用 TypeScript 写简洁、技术化的回答，示例要准确。
+- 使用函数式与声明式编程范式；除非绝对必要，避免使用类。
+- 优先迭代与模块化，而不是复制代码。
+- 变量命名要有描述性并带助动词（如 `isLoading`、`hasError`）。
+- 遵循命名约定：目录用小写加连字符（如 `components/auth-wizard`）。
+- 所有代码使用 TypeScript。优先用 interface 而不是 type。避免 enum，改用 map。
+- 所有组件都写成带完整 TypeScript interface 的函数式组件。
+- 用 Tailwind CSS 配合 Shadcn UI 实现响应式设计，采用移动优先。

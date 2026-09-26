@@ -1,0 +1,26 @@
+---
+description: 规定 NestJS 的架构原则、模块化设计与测试实践，作用于 src 目录。
+globs: src/**/*.*
+---
+- 使用模块化架构
+- 把 API 封装进模块。
+  - 每个主要领域/路由一个模块。
+  - 该路由一个 controller。
+  - 次级路由用另外的 controller。
+  - 一个 models 目录存放数据类型。
+  - 输入用 class-validator 校验的 DTO。
+  - 输出声明简单类型。
+  - 一个 services 模块承载业务逻辑与持久化。
+  - 每个实体一个 service。
+- 一个 core 模块放 Nest 相关构件
+  - 全局过滤器负责异常处理。
+  - 全局中间件负责请求管理。
+  - 守卫负责权限管理。
+  - 拦截器负责请求处理。
+- 一个 shared 模块放模块间共享的服务。
+  - 工具函数
+  - 共享业务逻辑
+- 测试使用标准的 Jest 框架。
+- 为每个 controller 与 service 写测试。
+- 为每个 api 模块写端到端测试。
+- 为每个 controller 加一个 admin/test 方法作为冒烟测试。

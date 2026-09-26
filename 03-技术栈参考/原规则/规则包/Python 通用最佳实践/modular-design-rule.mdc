@@ -1,0 +1,5 @@
+---
+description: 推行模块化设计：models、services、controllers、utilities 各自独立成文件。
+globs: *
+---
+- 模块化设计：models、services、controllers、utilities 分别放在各自独立的文件中。

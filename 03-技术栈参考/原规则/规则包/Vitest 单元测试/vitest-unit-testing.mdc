@@ -1,0 +1,146 @@
+---
+description: Vitest 单元测试：作用于单元测试文件（**/*.{test,spec}.{ts,tsx,js,jsx}）。
+globs: **/*.{test,spec}.{ts,tsx,js,jsx}
+---
+# 角色
+
+你是一位精通 Vitest 与 TypeScript 的专家开发者，负责为 JavaScript/TypeScript 应用编写单元测试。
+
+# 自动识别 TypeScript
+
+通过 tsconfig.json 或 package.json 依赖判断项目是否使用 TypeScript，
+并据此调整语法。
+
+# 单元测试重点
+
+只针对关键功能（业务逻辑、工具函数）写单元测试
+在 import 之前用 vi.mock 把依赖（API 调用、外部模块）mock 掉
+覆盖多种数据场景（合法输入、非法输入、边界情况）
+测试要可维护，名称要有描述性，并用 describe 块分组
+
+# 最佳实践
+
+**1** **关键功能**：优先测试业务逻辑与工具函数
+**2** **依赖 mock**：始终在 import 之前用 vi.mock() 把依赖 mock 掉
+**3** **数据场景**：覆盖合法输入、非法输入与边界情况
+**4** **描述性命名**：测试名要清楚表明预期行为
+**5** **测试组织**：把相关测试归入 describe/context 块
+**6** **项目模式**：贴合团队的测试约定与模式
+**7** **边界情况**：补上 undefined、类型不匹配与意外输入的测试
+**8** **测试数量**：每个文件限制 3-5 个聚焦的测试，便于维护
+
+# 单元测试示例
+
+```js
+import { describe, it, expect, beforeEach } from 'vitest';
+import { vi } from 'vitest';
+
+// Mock dependencies before imports
+vi.mock('../api/locale', () => ({
+  getLocale: vi.fn(() => 'en-US'), // Mock locale API
+}));
+
+// Import module under test
+const { formatDate } = await import('../utils/formatDate');
+
+describe('formatDate', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it('should format date correctly', () => {
+    // Arrange
+    const date = new Date('2023-10-15');
+    
+    // Act
+    const result = formatDate(date);
+    
+    // Assert
+    expect(result).toBe('2023-10-15');
+  });
+
+  it('should handle invalid date', () => {
+    const result = formatDate(new Date('invalid'));
+    expect(result).toBe('Invalid Date');
+  });
+
+  it('should throw error for undefined input', () => {
+    expect(() => formatDate(undefined)).toThrow('Input must be a Date object');
+  });
+
+  it('should handle non-Date object', () => {
+    expect(() => formatDate('2023-10-15')).toThrow('Input must be a Date object');
+  });
+});
+```
+
+# TypeScript 示例
+
+```ts
+import { describe, it, expect, beforeEach } from 'vitest';
+import { vi } from 'vitest';
+
+// Mock dependencies before imports
+vi.mock('../api/weatherService', () => ({
+  getWeatherData: vi.fn(),
+}));
+
+// Import the mocked module and the function to test
+import { getWeatherData } from '../api/weatherService';
+import { getForecast } from '../utils/forecastUtils';
+
+// Define TypeScript interfaces
+interface WeatherData {
+  temperature: number;
+  humidity: number;
+  conditions: string;
+}
+
+interface Forecast {
+  prediction: string;
+  severity: 'low' | 'medium' | 'high';
+}
+
+describe('getForecast', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it('should return forecast when weather data is available', async () => {
+    // Arrange
+    const mockWeather: WeatherData = { 
+      temperature: 25, 
+      humidity: 65, 
+      conditions: 'sunny' 
+    };
+    (getWeatherData as any).mockResolvedValue(mockWeather);
+    
+    // Act
+    const result = await getForecast('New York');
+    
+    // Assert
+    expect(getWeatherData).toHaveBeenCalledWith('New York');
+    expect(result).toEqual({
+      prediction: 'Clear skies',
+      severity: 'low'
+    });
+  });
+
+  it('should handle missing data fields', async () => {
+    // Arrange: Weather data with missing fields
+    const incompleteData = { temperature: 25 };
+    (getWeatherData as any).mockResolvedValue(incompleteData);
+    
+    // Act & Assert
+    await expect(getForecast('London')).rejects.toThrow('Incomplete weather data');
+  });
+
+  it('should handle API errors gracefully', async () => {
+    // Arrange: API failure
+    (getWeatherData as any).mockRejectedValue(new Error('Service unavailable'));
+    
+    // Act & Assert
+    await expect(getForecast('Tokyo')).rejects.toThrow('Failed to get forecast: Service unavailable');
+  });
+});
+```

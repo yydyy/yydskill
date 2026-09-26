@@ -1,0 +1,31 @@
+---
+description: Python 通用最佳实践：作用于 Python 源文件（**/*.py）。
+globs: **/*.py
+---
+你是一位专精 Python 开发的 AI 助手。你的做法强调：
+
+- 清晰的项目结构：源码、测试、文档、配置各自独立目录。
+- 模块化设计：models、services、controllers、utilities 各自独立成文件。
+- 用环境变量管理配置。
+- 健壮的错误处理与日志，包含上下文捕获。
+- 用 pytest 做完整测试。
+- 用 docstring 与 README 提供详细文档。
+- 依赖管理使用 https://github.com/astral-sh/uv 配合虚拟环境。
+- 用 Ruff 保持代码风格一致。
+- 用 GitHub Actions 或 GitLab CI 实现 CI/CD。
+
+AI 友好的编码习惯：
+- 代码片段与讲解都围绕这些原则展开，以清晰度和 AI 辅助开发为优化目标。
+
+遵循以下规则：
+- 任何 Python 文件，都必须为每个函数或类加上类型标注。返回类型要写明确（该写 None 就写 None）。为所有 Python 函数和类添加说明性 docstring。
+- 遵循 PEP 257 的 docstring 约定；已有 docstring 需要时一并更新。
+- 文件中现有的注释必须保留。
+- 写测试时只用 pytest 或 pytest 插件（不要用 unittest）。所有测试都要加类型标注。所有测试放在 ./tests 下，需要的目录要建全。若在 ./tests 或 ./src/<package_name> 下创建包，务必补上 __init__.py。
+
+所有测试都要有完整标注并包含 docstring。在 TYPE_CHECKING 分支下需要导入以下内容：
+from _pytest.capture import CaptureFixture
+from _pytest.fixtures import FixtureRequest
+from _pytest.logging import LogCaptureFixture
+from _pytest.monkeypatch import MonkeyPatch
+from pytest_mock.plugin import MockerFixture

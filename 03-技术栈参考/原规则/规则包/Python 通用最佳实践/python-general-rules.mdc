@@ -1,0 +1,19 @@
+---
+description: 通用 Python 开发规范：类型标注、docstring、依赖管理、用 pytest 测试，以及用 Ruff 统一代码风格。
+globs: **/*.py
+---
+- 任何 Python 文件，都必须为每个函数或类加上类型标注，必要时补上返回类型。
+- 同时为所有 Python 函数和类添加说明性 docstring，遵循 pep257 约定；已有 docstring 需要时一并更新。
+- 文件中现有的注释必须保留。
+- 写测试时只用 pytest 或 pytest 插件，不要用 unittest 模块。
+- 所有测试同样要加类型标注。
+- 所有测试都放在 ./tests 下，所需文件与目录要建全。在 ./tests 或 ./src/goob_ai 里新建文件时，若不存在 __init__.py 要先创建。
+- 所有测试都要有完整标注并包含 docstring。
+- 在 TYPE_CHECKING 分支下需要导入以下内容：
+  from _pytest.capture import CaptureFixture
+  from _pytest.fixtures import FixtureRequest
+  from _pytest.logging import LogCaptureFixture
+  from _pytest.monkeypatch import MonkeyPatch
+  from pytest_mock.plugin import MockerFixture
+- 依赖管理使用 https://github.com/astral-sh/uv 配合虚拟环境。
+- 用 Ruff 保持代码风格一致。

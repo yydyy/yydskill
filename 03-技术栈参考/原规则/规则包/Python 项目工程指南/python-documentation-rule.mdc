@@ -1,0 +1,5 @@
+---
+description: 在 Python 文件中用 docstring 与 README 提供详细文档，提升代码可理解性与可维护性。
+globs: /**/*.py
+---
+- 用 docstring 与 README 文件提供详细文档。

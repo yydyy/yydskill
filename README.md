@@ -1,322 +1,60 @@
-# AI_Cunstom - AI规则管理系统
+# AI技能库
 
-一套用于管理多种 AI 编程助手规则的工具集，支持 **Cline**、**Kimi**、**Cursor**、**Windsurf**、**Claude** 等多种格式，每个格式可以有独立的项目配置和 Skill 集合。
+个人 AI 规则与 skill 的**唯一入口**。`01-工程原则` / `02-个人习惯` 用中文书名做文件夹名；`03-技术栈参考` 的 178 个规则包在 2026-09-26 也已全部改成中文名。
 
-## 📖 项目结构
+原先分散在 `agent-rules-books`、`AI_Cunstom`、`awesome-cursorrules` 的内容已迁到这里。日常只维护本目录。
 
-```
-AI_Cunstom/
-├── config.json         # 配置文件
-├── main.py             # 规则管理脚本
-└── rule/               # 规则文件目录
-    ├── 00_rule_priority.md    # 规则优先级说明
-    ├── architect_review.md    # 架构设计审查
-    ├── clean_git_doc.md       # 文档与Git规范
-    ├── cocos_skills.md        # Cocos开发全流程
-    ├── debugging_scientist.md # 科学调试方法
-    ├── devils_advocate.md     # 批判性思维
-    ├── error_handler.md       # 错误处理模式
-    ├── performance_auditor.md # 性能审计
-    ├── security_guard.md      # 安全审计
-    └── test_first.md          # 测试驱动模式
-```
+## 打开就能看懂
 
-## 🚀 快速开始
+| 目录 | 是什么 | 何时用 |
+| --- | --- | --- |
+| `01-工程原则` | 15 本经典书蒸馏成的 skill | 重构、架构、遗留代码、上线时按书名打开 |
+| `02-个人习惯` | 自己的编码原则、Cocos、框架约束 | 几乎每次写代码都会用到 |
+| `03-技术栈参考` | Cursor 社区规则合集（按需查阅） | 做 React/Python 等栈时，只拷需要的那一份 |
+| `工具` | 同步到 Cursor / 项目的脚本 | 改完 skill 后运行一次 |
+| `文档` | 用法、许可、整理记录 | 查来源和约定 |
 
-### 1. 配置目标项目
+每个 skill 文件夹里：
 
-编辑 `config.json`，每个格式可以有独立的项目和 Skill 配置：
+- `SKILL.md`：给 Agent 读的正文（YAML `name` 是英文，Cursor 要求如此）。**这是唯一会被 Cursor 加载的文件。**
+- `完整版.md` / `极简版.md`：工程原则的两种长度，按需查
 
-```json
-{
-    "formats": {
-        "cline": {
-            "enabled": true,
-            "output_dir": ".clinerules",
-            "projects": [
-                {
-                    "path": "D:\\ProjectA",
-                    "include_all": true
-                }
-            ]
-        },
-        "kimi": {
-            "enabled": true,
-            "output_dir": ".kimi/skills",
-            "projects": [
-                {
-                    "path": "D:\\ProjectA",
-                    "include_skills": ["architect_review.md", "test_first.md"]
-                },
-                {
-                    "path": "D:\\ProjectB",
-                    "include_all": true
-                }
-            ]
-        },
-        "cursor": {
-            "enabled": false,
-            "output_dir": ".cursor/rules",
-            "file_extension": ".mdc",
-            "projects": []
-        },
-        "cursor_single": {
-            "enabled": false,
-            "output_file": ".cursorrules",
-            "projects": []
-        },
-        "windsurf": {
-            "enabled": false,
-            "output_file": ".windsurfrules",
-            "projects": []
-        },
-        "claude": {
-            "enabled": false,
-            "output_file": "CLAUDE.md",
-            "projects": []
-        }
-    }
-}
+> 2026-09-26 清理：删掉了与 `SKILL.md` 同文的 15 份 `精简版.md` 和 5 份被 `SKILL.md` 完整包含的 `原文.md`。
+> 需要原始长文看 `完整版.md`；需要极短版看 `极简版.md`。全库体检见 [文档/库体检报告.md](文档/库体检报告.md)。
+
+## 怎么用
+
+1. **人看**：进中文文件夹，先读 `SKILL.md`。
+2. **Agent 用**：把本库同步到 Cursor 用户技能目录，或同步到具体项目。
+3. **部署**：编辑 `工具/配置.json` 后，双击 `工具/同步到项目.bat`，或：
+
+```powershell
+pwsh -NoLogo -NoProfile -File "d:\Documents\AI技能库\工具\同步到项目.ps1"
 ```
 
-### 2. 运行脚本
+默认会把「工程原则 + 个人习惯」同步到 `C:\Users\<你>\.cursor\skills\`，文件夹名仍是中文。
 
-```bash
-python main.py
-```
+`03-技术栈参考` **不会**自动部署。需要时打开 [03-技术栈参考/目录.md](03-技术栈参考/目录.md)，只复制对应包到项目的 `.cursor/rules/`。
 
-脚本会自动将规则文件按各格式配置部署到对应项目。
+## 文档入口
 
-## 🤖 支持的 AI 格式
+- [文档/技能库总览.md](文档/技能库总览.md)：全库总账（有什么、放哪、怎么用）。
+- [文档/英文文件名含义.md](文档/英文文件名含义.md)：包内英文文件名的命名规律与逐包中文含义对照。
+- [文档/外部工具登记.md](文档/外部工具登记.md)：在用的外部 skill/MCP（Open Code Review、codeGraph、code-review-graph、mcp-bridge 等）。
 
-| 格式 | 配置名 | 输出路径 | 说明 |
-|-----|--------|---------|------|
-| **Cline** | `cline` | `.clinerules/` | 目录下直接放 `.md` 文件 |
-| **Kimi** | `kimi` | `.kimi/skills/` | 子目录结构，每个 skill 一个子文件夹包含 `SKILL.md` |
-| **Cursor** | `cursor` | `.cursor/rules/` | 目录下放 `.mdc` 文件（带 frontmatter） |
-| **Cursor (单文件)** | `cursor_single` | `.cursorrules` | 合并所有 skill 到一个文件 |
-| **Windsurf** | `windsurf` | `.windsurfrules` | 合并所有 skill 到一个文件 |
-| **Claude** | `claude` | `CLAUDE.md` | 合并所有 skill 到一个文件 |
+## 命名约定
 
-## 📋 配置示例
+- **`01-工程原则` / `02-个人习惯`**：外层文件夹用**中文书名**，例如 `整洁代码`、`领域驱动设计`。
+- **`03-技术栈参考`**：178 个规则包也已用**中文技术栈名**，例如 `React+TS+shadcn·ui 组件开发规范`、`Python FastAPI 规范`。
+  - 文件夹名里的 `/` 一律写成 `·`（Windows 不允许 `/`）。
+  - 包内 `.mdc` 的**文件名保持英文**——134 个包有多个 `.mdc`，改文件名会牵动太多引用；而且规则生效靠文件里的 `globs` 字段，与文件名无关。
+- **`SKILL.md` 的 YAML `name`**：必须是英文 kebab-case，例如 `clean-code`。这是 Cursor 的硬性格式，不能改成中文。
+- 对照表：`01-02` 见 [目录.json](目录.json)；`03` 见 [03-技术栈参考/目录.md](03-技术栈参考/目录.md)。
+- 改名工具：`工具/重命名规则包.py`（英文名 → 中文名映射的唯一来源，也被 `工具/包路径.py` 复用）。
+- `rules-new` 已改名 `精简规则`；`rules` 若改名需同步 `工具/重命名规则包.py` 与 `工具/包路径.py` 里的 `RULES` 常量。
 
-### 示例 1: 不同项目使用不同格式
+## 不要做的事
 
-```json
-{
-    "formats": {
-        "cline": {
-            "enabled": true,
-            "output_dir": ".clinerules",
-            "projects": [
-                {"path": "D:\\WebProject", "include_all": true}
-            ]
-        },
-        "kimi": {
-            "enabled": true,
-            "output_dir": ".kimi/skills",
-            "projects": [
-                {"path": "D:\\GameProject", "include_skills": ["cocos_skills.md", "performance_auditor.md"]}
-            ]
-        },
-        "cursor": {
-            "enabled": true,
-            "output_dir": ".cursor/rules",
-            "projects": [
-                {"path": "D:\\AIPythonProject", "include_skills": ["architect_review.md", "test_first.md", "security_guard.md"]}
-            ]
-        }
-    }
-}
-```
-
-### 示例 2: 同一项目使用多个格式
-
-```json
-{
-    "formats": {
-        "cline": {
-            "enabled": true,
-            "output_dir": ".clinerules",
-            "projects": [
-                {"path": "D:\\MyProject", "include_all": true}
-            ]
-        },
-        "cursor_single": {
-            "enabled": true,
-            "output_file": ".cursorrules",
-            "projects": [
-                {"path": "D:\\MyProject", "include_skills": ["architect_review.md"]}
-            ]
-        },
-        "kimi": {
-            "enabled": true,
-            "output_dir": ".kimi/skills",
-            "projects": [
-                {"path": "D:\\MyProject", "include_skills": ["debugging_scientist.md", "error_handler.md"]}
-            ]
-        }
-    }
-}
-```
-
-运行后会同时在 `D:\MyProject` 生成：
-```
-MyProject/
-├── .clinerules/              # Cline: 所有规则
-│   ├── architect_review.md
-│   ├── debugging_scientist.md
-│   ├── error_handler.md
-│   └── ...
-├── .cursorrules              # Cursor: 只有架构审查
-└── .kimi/skills/             # Kimi: 只有调试相关
-    ├── debugging_scientist/SKILL.md
-    └── error_handler/SKILL.md
-```
-
-### 示例 3: 同一项目不同格式使用不同 Skill 集合
-
-```json
-{
-    "formats": {
-        "cline": {
-            "enabled": true,
-            "output_dir": ".clinerules",
-            "projects": [
-                {
-                    "path": "D:\\FullStackProject",
-                    "include_skills": [
-                        "architect_review.md",
-                        "test_first.md",
-                        "security_guard.md",
-                        "clean_git_doc.md"
-                    ]
-                }
-            ]
-        },
-        "kimi": {
-            "enabled": true,
-            "output_dir": ".kimi/skills",
-            "projects": [
-                {
-                    "path": "D:\\FullStackProject",
-                    "include_skills": [
-                        "architect_review.md",
-                        "test_first.md"
-                    ]
-                }
-            ]
-        }
-    }
-}
-```
-
-## 🎯 场景化规则组合
-
-### 按需选择规则
-
-```json
-{
-    "path": "D:\\YourProject",
-    "include_skills": [
-        "architect_review.md",
-        "test_first.md",
-        "security_guard.md"
-    ]
-}
-```
-
-### 使用全部规则
-
-```json
-{
-    "path": "D:\\YourProject",
-    "include_all": true
-}
-```
-
-### 推荐组合
-
-| 场景 | 推荐规则 |
-|-----|---------|
-| 新功能开发 | `architect_review` + `test_first` + `security_guard` |
-| Bug调试 | `debugging_scientist` + `devils_advocate` + `error_handler` |
-| 性能优化 | `performance_auditor` + `architect_review` |
-| Cocos游戏开发 | `cocos_skills` + `performance_auditor` |
-| Cocos Framework 项目 | `cocos_framework_proto` + `cocos_skills` |
-| 代码审查 | `architect_review` + `devils_advocate` + `security_guard` |
-
-## 📚 规则说明
-
-| 规则文件 | 用途 | 核心要点 |
-|---------|------|---------|
-| `architect_review.md` | 架构设计审查 | SOLID原则、设计模式、解耦 |
-| `clean_git_doc.md` | 文档与Git规范 | JSDoc、Commit规范、README维护 |
-| `cocos_skills.md` | Cocos开发全流程 | 版本适配、性能优化、同步架构 |
-| `debugging_scientist.md` | 科学调试方法 | 根因分析、最小复现、日志策略 |
-| `devils_advocate.md` | 批判性思维 | 边缘情况、安全检查、性能陷阱 |
-| `error_handler.md` | 错误处理模式 | 优雅降级、错误传播策略 |
-| `performance_auditor.md` | 性能审计 | 内存监控、DrawCall、泄漏检测 |
-| `security_guard.md` | 安全审计 | 输入验证、敏感数据保护 |
-| `test_first.md` | 测试驱动模式 | 测试覆盖、边界条件、Mock策略 |
-| `cocos_framework_proto.md` | Cocos Framework 类型扩展 | Vec/Sprite/Node 原型扩展、装饰器 |
-
-## ⚙️ 配置选项详解
-
-### formats 配置
-
-| 格式 | 参数 | 说明 | 默认值 |
-|-----|------|------|--------|
-| `cline` | `enabled` | 是否启用 | `false` |
-| | `output_dir` | 输出目录名 | `.clinerules` |
-| | `projects` | 该格式的项目列表 | `[]` |
-| `kimi` | `enabled` | 是否启用 | `false` |
-| | `output_dir` | 输出目录名 | `.kimi/skills` |
-| | `projects` | 该格式的项目列表 | `[]` |
-| `cursor` | `enabled` | 是否启用 | `false` |
-| | `output_dir` | 输出目录名 | `.cursor/rules` |
-| | `file_extension` | 文件扩展名 | `.mdc` |
-| | `projects` | 该格式的项目列表 | `[]` |
-| `cursor_single` | `enabled` | 是否启用 | `false` |
-| | `output_file` | 输出文件名 | `.cursorrules` |
-| | `projects` | 该格式的项目列表 | `[]` |
-| `windsurf` | `enabled` | 是否启用 | `false` |
-| | `output_file` | 输出文件名 | `.windsurfrules` |
-| | `projects` | 该格式的项目列表 | `[]` |
-| `claude` | `enabled` | 是否启用 | `false` |
-| | `output_file` | 输出文件名 | `CLAUDE.md` |
-| | `projects` | 该格式的项目列表 | `[]` |
-
-### projects 配置项
-
-| 参数 | 说明 |
-|-----|------|
-| `path` | 目标项目路径（绝对路径） |
-| `include_all` | 是否拷贝所有规则文件到该项目 |
-| `include_skills` | 指定要拷贝的规则文件列表（优先级高于 `include_all`） |
-
-### 兼容旧配置
-
-如果使用的是旧版配置（配置了 `rules_dir` 和全局 `target_projects`），脚本会自动迁移：
-
-```json
-{
-    "rules_dir": ".clinerules",
-    "target_projects": [
-        {"path": "D:\\Project", "include_all": true}
-    ]
-}
-```
-
-会自动转换为启用 `cline` 格式，并将 `target_projects` 迁移到 `formats.cline.projects`。
-
-## 💡 设计原则
-
-1. **格式独立**: 每个 AI 格式有自己的项目列表和 Skill 集合
-2. **灵活组合**: 同一项目可以为不同 AI 配置不同的 Skill
-3. **按需部署**: 只为需要的 AI 工具生成配置
-4. **精简优先**: 每个规则控制在100-150字，避免上下文溢出
-
-## 📄 License
-
-MIT License
+- 不要再往旧的三个英文仓库里加规则。
+- 不要把 `03-技术栈参考/原规则` 整包同步进项目，会把上下文撑爆。
+- 不要改 `C:\Users\<你>\.cursor\skills-cursor\`，那是 Cursor 内置 skill。

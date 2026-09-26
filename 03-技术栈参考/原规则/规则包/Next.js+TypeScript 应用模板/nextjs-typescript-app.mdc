@@ -1,0 +1,8 @@
+---
+description: Next.js+TypeScript 应用模板：作用于 TypeScript/JavaScript 源文件（**/*.{ts,tsx,js,jsx}）。
+globs: **/*.{ts,tsx,js,jsx}
+---
+This project, named Astral, the Block Explorer of Autonomys network, is built using Next.js and TypeScript.
+
+It integrates various libraries for state management, UI components, and data fetching.
+

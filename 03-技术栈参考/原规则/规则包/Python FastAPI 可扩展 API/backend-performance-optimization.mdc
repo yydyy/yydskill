@@ -1,0 +1,7 @@
+---
+description: 聚焦 Python 后端的性能优化手法。
+globs: backend/src/**/*.py
+---
+- 用 async 函数减少阻塞式 I/O 操作。
+- 对频繁访问的数据使用 Redis 或内存存储实现缓存策略。
+- 大数据集与 API 响应用懒加载。

@@ -1,0 +1,5 @@
+---
+description: 指定用 uv（首选）管理依赖与虚拟环境，保证依赖一致且相互隔离。
+globs: /**/pyproject.toml
+---
+- 依赖管理使用 https://github.com/astral-sh/uv 配合虚拟环境。

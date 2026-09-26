@@ -1,0 +1,21 @@
+---
+description: TypeScript+Vue 规范：作用于 TypeScript/JavaScript 源文件（**/*.{ts,tsx,js,jsx}）。
+globs: **/*.{ts,tsx,js,jsx}
+---
+Code Style and Structure:
+
+Naming Conventions:
+
+TypeScript Usage:
+
+Syntax and Formatting:
+
+Error Handling and Validation:
+
+UI and Styling:
+
+Performance Optimization:
+
+Key Conventions:
+Follow Vue.js docs for where makes sense
+

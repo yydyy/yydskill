@@ -1,0 +1,21 @@
+{
+    "_comment": "改项目路径后运行 同步到项目.ps1。groups 只能填 工程原则 或 个人习惯；技术栈参考请手工按需拷贝。",
+    "cursorUserSkills": {
+        "enabled": true,
+        "groups": ["工程原则", "个人习惯"]
+    },
+    "projects": [
+        {
+            "path": "D:\\Documents\\rouGeLike",
+            "enabled": true,
+            "tools": ["agents", "claude"],
+            "groups": ["工程原则", "个人习惯"]
+        },
+        {
+            "path": "D:\\Documents\\BigMap",
+            "enabled": true,
+            "tools": ["cline", "kimi"],
+            "groups": ["个人习惯"]
+        }
+    ]
+}
